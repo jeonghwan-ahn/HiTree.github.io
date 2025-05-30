@@ -154,8 +154,8 @@ and we measured speedup as the primary performance metric.
 </div>
 
     
-We conducted experiments across various combinations of $\gamma1$ and $\gamma2$.
-Specifically, we used $\gamma1$ values of 2, 4, and 6, and $\gamma2$ values of 6 and 12, following the configuration adopted in Triforce. In our setup, the depth of the tree was set equal to $\gamma1$, and we employed a fixed binary tree structure to perform tree-based speculative decoding.
+We conducted experiments across various combinations of γ₁ and γ₂.
+Specifically, we used γ₁ values of 2, 4, and 6, and γ₂ values of 6 and 12, following the configuration adopted in Triforce. In our setup, the depth of the tree was set equal to γ₁, and we employed a fixed binary tree structure to perform tree-based speculative decoding.
 This design allowed us to simplify the implementation while maintaining consistency with the hierarchical decoding framework.
     
 
