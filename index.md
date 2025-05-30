@@ -110,7 +110,7 @@ Tree-based speculative decoding is motivated by the observation that strategical
     
 <a id="design-overview"></a>
 <div style="text-align: center;">
-  <img src="https://hackmd.io/_uploads/HkpTWaLzge.png" alt="efficient_ML_proposal" width="700"/>
+  <img src="https://hackmd.io/_uploads/HkpTWaLzge.png" alt="efficient_ML_proposal" width="800"/>
 </div>
   <div style="text-align: center; font-size: 0.9em; color: gray; margin: 0 auto 20px;">
   Figure 4. Design overview of HiTree
@@ -213,7 +213,7 @@ Such an approach would enable more flexible and efficient candidate branching ta
 In this project, we propose HiTree, a novel LLM decoding framework that integrates hierarchical speculative decoding with tree-based drafting. We observed that existing speculative decoding methods often struggle with long-context generation. By incorporating a tree-based drafting strategy between the draft and target models, HiTree achieves up to 3.23× higher acceptance rates compared to using hierarchical speculation alone, ultimately leading to a 17% reduction in latency.
 
 
-
+## References
 [^splitwise]: Patel, Pratyush, et al. "Splitwise: Efficient generative llm inference using phase splitting." 2024 ACM/IEEE 51st Annual International Symposium on Computer Architecture (ISCA). IEEE, 2024. [[pdf]](https://arxiv.org/pdf/2311.18677)
 [^speculative_sampling]: Leviathan, Yaniv, Matan Kalman, and Yossi Matias. "Fast inference from transformers via speculative decoding." International Conference on Machine Learning. PMLR, 2023. [[pdf]](https://arxiv.org/pdf/2211.17192)
 [^H2O]: Zhang, Zhenyu, et al. "H2o: Heavy-hitter oracle for efficient generative inference of large language models." Advances in Neural Information Processing Systems 36 (2023): 34661-34710. [[pdf]](https://arxiv.org/pdf/2306.14048)
