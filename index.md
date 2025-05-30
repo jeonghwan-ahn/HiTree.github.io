@@ -1,3 +1,7 @@
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 Large Language Models (LLMs) have enabled remarkable progress in diverse domains by delivering high-quality and precise text generation. Despite these advances, the process of text generation remains computationally intensive and time-consuming, posing challenges for efficient and scalable deployment. 
 
 To overcome these hurdles, innovative techniques like speculative decoding have emerged. This approach leverages a smaller draft model to quickly propose candidate tokens, which are then verified by a larger, more accurate target model.
