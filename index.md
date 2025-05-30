@@ -38,37 +38,7 @@ Next, the target model (the original model) verifies these candidate tokens in p
 It is crucial to maintain the target model’s performance when candidate tokens from the draft model are accepted. To achieve this, a technique called Speculative Sampling has been proposed. It has been proven that this method theoretically ensures the generated tokens precisely follow the distribution of the target model. Below is the Speculative Sampling algorithm.
 
 ---
->$\textbf{Algorithm 1 }$ Speculative Decoding
-
-<div style="font-size: 80%; text-align: left;">
-    
-$$
-\begin{aligned}
-& \textbf{Inputs: } M_p, M_q, \text{ prefix} && \\
-& \triangleright \text{Sample } \gamma \text{ guesses } x_1, \ldots, x_\gamma \text{ from } M_q \text{ autoregressively.} && \\
-& \textbf{for } i=1 \textbf{ to } \gamma \textbf{ do} && \\
-& \quad q_i(x) \leftarrow M_p(\text{prefix} + [x_1, \ldots, x_{i-1}]) && \\
-& \quad x_i \sim q_i(x) && \\
-& \textbf{end for} && \\
-& \triangleright \text{Run } M_p \text{ in parallel.} && \\
-& p_1(x), \ldots, p_{\gamma+1}(x) \leftarrow M_p(\text{prefix}), \ldots, M_p(\text{prefix} + [x_1, \ldots, x_\gamma]) && \\
-& \triangleright \text{Determine the number of accepted guesses } n && \\
-& r_1 \sim U(0,1), \ldots, r_\gamma \sim U(0,1) && \\
-& n \leftarrow \min \left( \{ i - 1 \mid 1 \leq i \leq \gamma, r_i > \frac{p_i(x)}{q_i(x)} \} \cup \{\gamma\} \right) && \\
-& \triangleright \text{Adjust the distribution from } M_p \text{ if needed.} && \\
-& p'(x) \leftarrow p_{n+1}(x) && \\
-& \textbf{if } n < \gamma \textbf{ then} && \\
-& \quad p'(x) \leftarrow \mathrm{norm}(\max(0, p_{n+1}(x) - q_{n+1}(x))) && \\
-& \textbf{end if} && \\
-& \triangleright \text{Return one token from } M_p, \text{ and } n \text{ tokens from } M_q. && \\
-& t \sim p'(x) && \\
-& \textbf{return } \text{prefix} + [x_1, \ldots, x_n, t] && \\
-& 1 \leq i \leq \gamma &&
-\end{aligned}
-$$
-</div>
-
----
+<pre> ```text Algorithm 1: Speculative Decoding Inputs: Mₚ, M_q, prefix ▸ Sample γ guesses x₁, ..., x_γ from M_q autoregressively. for i = 1 to γ do qᵢ(x) ← Mₚ(prefix + [x₁, ..., x_{i−1}]) xᵢ ∼ qᵢ(x) end for ▸ Run Mₚ in parallel p₁(x), ..., p_{γ+1}(x) ← Mₚ(prefix), ..., Mₚ(prefix + [x₁, ..., x_γ]) ▸ Determine the number of accepted guesses n r₁ ∼ U(0,1), ..., r_γ ∼ U(0,1) n ← min({i−1 | 1 ≤ i ≤ γ, rᵢ > pᵢ(x)/qᵢ(x)} ∪ {γ}) ▸ Adjust the distribution from Mₚ if needed p′(x) ← p_{n+1}(x) if n < γ then p′(x) ← norm(max(0, p_{n+1}(x) − q_{n+1}(x))) end if ▸ Return one token from Mₚ and n tokens from M_q t ∼ p′(x) return prefix + [x₁, ..., x_n, t] ``` </pre>
 ## The Need for Long-Context Speculative Decoding
 ### Dual Memory Bottlenecks in LLMs: Model Parameters and KV Cache
 We found an interesting observation while researching speculative decoding to improve the efficiency of LLM decoding. We conducted experiments under various conditions to measure the speedup using Llama-2-7b-chat as the target model and Llama-68M as the draft model. As we increased the number of generated tokens from 128 to 4096, which is the maximum sequence length that Llama-2-7b-chat can handle, we observed that the effectiveness of speculative decoding diminished as the number of generated tokens grew.
