@@ -43,7 +43,7 @@ It is crucial to maintain the target model’s performance when candidate tokens
 <div style="font-size: 80%; text-align: left;">
     
 $$
-\begin{flalign*}
+\begin{aligned}
 & \textbf{Inputs: } M_p, M_q, \text{ prefix} && \\
 & \triangleright \text{Sample } \gamma \text{ guesses } x_1, \ldots, x_\gamma \text{ from } M_q \text{ autoregressively.} && \\
 & \textbf{for } i=1 \textbf{ to } \gamma \textbf{ do} && \\
