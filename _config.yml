@@ -16,6 +16,10 @@ authors:
     #url: "https://www.linkedin.com/in/vidit-aggarwal-328525285/"
     affiliations:
       name: POSTECH, Korea
+
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
 # bibliography: 2025-04-28-analysing-the-spectral-biases-in-generative-# models.bib  
 # 
 # # Add a table of contents to your post.
