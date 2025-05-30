@@ -72,6 +72,34 @@ $$
 $$
 </div>
 
+<p style="text-align: left;">
+$$
+\begin{align*}
+& \textbf{Inputs: } M_p, M_q, \text{ prefix} \\
+& \triangleright \text{Sample } \gamma \text{ guesses } x_1, \ldots, x_\gamma \text{ from } M_q \text{ autoregressively.} \\
+& \textbf{for } i=1 \textbf{ to } \gamma \textbf{ do} \\
+& \quad q_i(x) \leftarrow M_p(\text{prefix} + [x_1, \ldots, x_{i-1}]) \\
+& \quad x_i \sim q_i(x) \\
+& \textbf{end for} \\
+& \triangleright \text{Run } M_p \text{ in parallel.} \\
+& p_1(x), \ldots, p_{\gamma+1}(x) \leftarrow M_p(\text{prefix}), \ldots, M_p(\text{prefix} + [x_1, \ldots, x_\gamma]) \\
+& \triangleright \text{Determine the number of accepted guesses } n \\
+& r_1 \sim U(0,1), \ldots, r_\gamma \sim U(0,1) \\
+& n \leftarrow \min \left( \{ i - 1 \mid 1 \leq i \leq \gamma, r_i > \frac{p_i(x)}{q_i(x)} \} \cup \{\gamma\} \right) \\
+& \triangleright \text{Adjust the distribution from } M_p \text{ if needed.} \\
+& p'(x) \leftarrow p_{n+1}(x) \\
+& \textbf{if } n < \gamma \textbf{ then} \\
+& \quad p'(x) \leftarrow \mathrm{norm}(\max(0, p_{n+1}(x) - q_{n+1}(x))) \\
+& \textbf{end if} \\
+& \triangleright \text{Return one token from } M_p, \text{ and } n \text{ tokens from } M_q. \\
+& t \sim p'(x) \\
+& \textbf{return } \text{prefix} + [x_1, \ldots, x_n, t] \\
+& 1 \leq i \leq \gamma
+\end{align*}
+$$
+</p>
+
+
 ---
     
 <div style="text-align: center;">
