@@ -42,7 +42,7 @@ Next, the target model (the original model) verifies these candidate tokens in p
 It is crucial to maintain the target model’s performance when candidate tokens from the draft model are accepted. To achieve this, a technique called Speculative Sampling has been proposed. It has been proven that this method theoretically ensures the generated tokens precisely follow the distribution of the target model. Below is the Speculative Sampling algorithm.
 
 ---
->$\textbf{Algorithm 1 }$ Speculative Decoding
+**Algorithm 1** Speculative Decoding
 
 <div style="font-size: 80%; text-align: left;">
     
