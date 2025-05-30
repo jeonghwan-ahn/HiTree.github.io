@@ -93,7 +93,7 @@ These observations offer valuable insight into how the KV-Cache can be managed m
 ### Leveraging Local Redundancy in KV-Cache Design
 The KV-Cache can be divided into smaller chunks, allowing each to be selectively accessed through a retrieval-based approach with little to no impact on performance[^triforce]. By fetching only the relevant information needed for attention computation, this method helps reduce memory usage and avoid unnecessary computation. Although performance may vary depending on chunk size and retrieval strategy, this approach is widely seen as an effective and practical way to support efficient inference.
     
-## :deciduous_tree: HiTree: Hierarchical Speculation via Tree-Based Drafting
+## 🌳 HiTree: Hierarchical Speculation via Tree-Based Drafting
 While exploring ways to improve speculative decoding in long-context scenarios, we came across the [triforce framework](https://github.com/Infini-AI-Lab/TriForce). Although it introduced an efficient cache management strategy, it did not incorporate a tree-based drafting mechanism. This led us to investigate whether integrating a tree structure into the Triformer approach could further enhance performance, which became the starting point of our experiments.
 ### Hierarchical Speculative Decoding
 Triforce is a hierarchical speculative decoding framework designed to improve memory efficiency and computational performance during inference in large language models (LLMs), particularly in long-context scenarios.
@@ -129,7 +129,7 @@ In our setup, we did not apply a tree structure between the retrieval and target
 
 
     
-## :llama: How Fast Can a Llama Spit?
+## 🦙 How Fast Can a Llama Spit?
 ### Experimental Settings
 Our experiments were conducted based on the Triforce framework, as previously described. To ensure a fair comparison with Triforce, we adopted most of the original experimental settings. We used Llama2 and LWM models with a 128K context window as our target models[^LWM].
     
