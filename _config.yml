@@ -1,7 +1,35 @@
-title: HiTree
-description: Efficient hierarchical speculative decoding via tree-based drafting
-theme: minima
-
-markdown: kramdown
-kramdown:
-  math_engine: mathjax
+---
+layout: distill
+title: HiTree:Efficient Hierarchical Speculative Decoding via Tree-Based Drafting
+description: To conduct the LLM inference efficiently, speculative decoding is emerging as a promising solution by using a small draft model to propose tokens and a large target model to verify them. In this project, we propose to extend and improve the hierarchical speculative decoding method by integrating a tree-based architecture. This extension aims to support multi-sequence inference and explore hierarchical token prediction more efficiently. Our approach focuses on expanding the scalability of speculative decoding while preserving or improving accuracy and inference latency.
+date: 2025-04-28
+future: true
+htmlwidgets: true
+hidden: false
+# anonymize when submitting 
+authors:
+  - name: Jiwoo Kim
+    #url: "https://www.linkedin.com/in/amitoj-singh-miglani-76baa2291/"
+    affiliations:
+      name: POSTECH, Korea
+  - name: Vidit Aggarwal
+    #url: "https://www.linkedin.com/in/vidit-aggarwal-328525285/"
+    affiliations:
+      name: POSTECH, Korea
+# bibliography: 2025-04-28-analysing-the-spectral-biases-in-generative-# models.bib  
+# 
+# # Add a table of contents to your post.
+# #   - make sure that TOC names match the actual section names
+# #     for hyperlinks within the post to work correctly.
+# toc:
+#   - name: Viewing Images in Frequency Domain
+#   - name: Analysis of Bias in GANs
+#   # you can additionally add subentries like so
+#     subsections:
+#     - name: Setting Up the Generative CNN Structure
+#     - name: ReLU as a Fixed Binary Mask
+#     - name: Onto The Analysis of Filter Spectrum
+#   - name: Frequency bias in Diffusion Models
+#   - name: Mitigation of Frequency Bias Using Spectral Diffusion Model
+#   - name: Conclusion
+---
