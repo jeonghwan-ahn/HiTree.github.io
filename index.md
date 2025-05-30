@@ -64,7 +64,7 @@ $$
 & t \sim p'(x) && \\
 & \textbf{return } \text{prefix} + [x_1, \ldots, x_n, t] && \\
 & 1 \leq i \leq \gamma &&
-\end{flalign*}
+\end{aligned}
 $$
 </div>
 
