@@ -113,9 +113,9 @@ Tree-based speculative decoding is motivated by the observation that strategical
 </div>
 
 
-Figure.<a href="#tree_application">5</a> provides a more detailed view of the hierarchical speculation structure with tree-based drafting. In our design, the tree is applied between the draft and retrieval models. Specifically, the smallest draft model generates a tree of depth $\gamma_1$ using a top-k branching strategy, resulting in $k^{\gamma_1}$ candidate sequences of length $\gamma_1$ .
+Figure.<a href="#tree_application">5</a> provides a more detailed view of the hierarchical speculation structure with tree-based drafting. In our design, the tree is applied between the draft and retrieval models. Specifically, the smallest draft model generates a tree of depth γ₁ using a top-k branching strategy, resulting in $k^{\gamma_1}$ candidate sequences of length γ₁ .
 
-The retrieval model then selects tokens from these candidates until a total of $\gamma_2$  tokens have been accepted. These selected tokens are finally verified by the target model. This entire process is repeated until the final generated sequence reaches the externally specified length n.
+The retrieval model then selects tokens from these candidates until a total of γ₂ tokens have been accepted. These selected tokens are finally verified by the target model. This entire process is repeated until the final generated sequence reaches the externally specified length n.
 
 In our setup, we did not apply a tree structure between the retrieval and target models, as the acceptance rate between these two models in the baseline TriForce setup was already sufficiently high.
     
